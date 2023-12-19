@@ -1,29 +1,45 @@
-let post = "";
-const textInputNode = document.querySelector(".js-post__text");
-const postButtonNode = document.querySelector(".js-post__publication-button");
+let post = {
+  title: "",
+  text: "",
+};
+
+const titleInputNode = document.querySelector(".js-post-input__title");
+const textInputNode = document.querySelector(".js-post-input__text");
+const postButtonNode = document.querySelector(".js-post-input__button");
 const postsNode = document.querySelector(".js-posts__item");
 
-console.log(textInputNode);
+console.log(titleInputNode);
 console.log(postButtonNode);
 
 postButtonNode.addEventListener("click", function () {
+  // получить данные из поля ввода
   const dataFromUser = getDataFromUser();
+  // сохранить пост
   setPost(dataFromUser);
+  // отобразить пост
   renderPost();
 });
 
-// получить данные из поля ввода
 function getDataFromUser() {
-  const post = textInputNode.value;
-  return post;
+  const title = titleInputNode.value;
+  const text = textInputNode.value;
+  return { title, text };
 }
 
-// сохранить пост
 function setPost(newPost) {
   post = newPost;
 }
 
-// отобразить пост
+function getPost() {
+  return post;
+}
+
 function renderPost() {
-  postsNode.innerText = post;
+  const post = getPost();
+
+  const postHTML = `
+        <h3 class="item__title">${post.title}</h3>
+        <p class="item__text">${post.text}</p>`;
+
+  postsNode.innerHTML = postHTML;
 }

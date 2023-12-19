@@ -14,19 +14,25 @@
         <div class="column">
           <section class="post section">
             <h2 class="post__title section__title">Новый пост</h2>
-            <input class="post__text js-post__text" type="text" />
-            <button
-              class="post__publication-button js-post__publication-button"
-              type="button"
-            >
-              Опубликовать
-            </button>
+            <form class="post-input">
+              <input
+                class="post-input__title js-post-input__title"
+                type="text"
+              />
+              <input class="post-input__text js-post-input__text" type="text" />
+              <button
+                class="post-input__button js-post-input__button"
+                type="button"
+              >
+                Опубликовать
+              </button>
+            </form>
           </section>
         </div>
         <div class="column">
           <section class="posts section">
             <h2 class="posts__title section__title">Лента</h2>
-            <div class="posts__item js-posts__item">Лента пустая...</div>
+            <div class="posts__item item js-posts__item">Лента пустая...</div>
           </section>
         </div>
       </div>

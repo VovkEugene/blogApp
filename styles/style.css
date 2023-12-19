@@ -27,18 +27,28 @@ body {
   font-weight: 700;
 }
 
-.post {
+.post-input > *,
+.item > * {
+  margin-bottom: 10px;
 }
-
-.post__title {
-}
-
-.post__text {
+.post-input__title {
   width: 300px;
   display: block;
 }
 
-.post__publication-button {
+.post-input__text {
+  width: 300px;
+  display: block;
+}
+
+.post-input__button {
   width: 300px;
   height: 30px;
+  background-color: rgb(64, 161, 251);
+  color: #fff;
+}
+
+.item__title,
+.item__text {
+  padding: 2.714px 0;
 }
