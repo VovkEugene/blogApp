@@ -2,11 +2,32 @@ body {
   font-family: sans-serif;
 }
 
-.post {
-    padding: 50px 30px;
+.container {
+  padding: 50px 30px;
 }
-.post > * {
+.main__title {
+  margin-bottom: 50px;
+  padding: 10px 20px;
+  display: inline-block;
+  border: 1px solid #000;
+  border-radius: 30px;
+  font-size: 2rem;
+}
+
+.row {
+  display: flex;
+  gap: 30px;
+}
+
+.section > * {
   margin-bottom: 20px;
+}
+.section__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.post {
 }
 
 .post__title {

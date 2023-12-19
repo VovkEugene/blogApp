@@ -8,16 +8,31 @@
     <title>Blog App</title>
   </head>
   <body>
-    <div class="post">
-      <h2 class="post__title">Новый пост</h2>
-      <input class="post__text js-post__text" type="text" />
-      <button
-        class="post__publication-button js-post__publication-button"
-        type="button"
-      >
-        Опубликовать
-      </button>
-      <script src="./js/app.js"></script>
+    <div class="container">
+      <h1 class="main__title">Мой блог</h1>
+      <div class="row">
+          <div class="column">
+            <section class="post section">
+              <h2 class="post__title section__title">Новый пост</h2>
+              <input class="post__text js-post__text" type="text" />
+              <button
+                class="post__publication-button js-post__publication-button"
+                type="button"
+              >
+                Опубликовать
+              </button>
+            </section>
+          </div>
+          <div class="column">
+            <section class="posts section">
+              <h2 class="posts__title section__title">Лента</h2>
+              <div class="posts__item js-posts__item">
+                Лента пустая...
+              </div>
+            </section>
+          </div>
+      </div>
     </div>
+    <script src="./js/app.js"></script>
   </body>
 </html>
