@@ -18,8 +18,15 @@
               <input
                 class="post-input__title js-post-input__title"
                 type="text"
+                placeholder="Заголовок"
+                required
               />
-              <input class="post-input__text js-post-input__text" type="text" />
+              <textarea
+                class="post-input__text js-post-input__text"
+                type="text"
+                placeholder="Текст"
+                required
+              ></textarea>
               <button
                 class="post-input__button js-post-input__button"
                 type="button"
@@ -27,6 +34,10 @@
                 Опубликовать
               </button>
             </form>
+            <p
+              id="validationMessage"
+              class="validationMessage validationMessage_hidden"
+            ></p>
           </section>
         </div>
         <div class="column">

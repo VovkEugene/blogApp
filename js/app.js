@@ -1,24 +1,25 @@
-let post = {
-  title: "",
-  text: "",
-};
+const posts = [];
+const TITLE_VALIDATION_LIMIT = 10;
+const TEXT_VALIDATION_LIMIT = 20;
 
 const titleInputNode = document.querySelector(".js-post-input__title");
 const textInputNode = document.querySelector(".js-post-input__text");
 const postButtonNode = document.querySelector(".js-post-input__button");
 const postsNode = document.querySelector(".js-posts__item");
-
-console.log(titleInputNode);
-console.log(postButtonNode);
+const validationMessage = document.getElementById("validationMessage");
 
 postButtonNode.addEventListener("click", function () {
   // получить данные из поля ввода
   const dataFromUser = getDataFromUser();
   // сохранить пост
-  setPost(dataFromUser);
+  addPost(dataFromUser);
   // отобразить пост
-  renderPost();
+  renderPosts();
 });
+
+titleInputNode.addEventListener("input", validation);
+
+textInputNode.addEventListener("input", validation);
 
 function getDataFromUser() {
   const title = titleInputNode.value;
@@ -26,20 +27,48 @@ function getDataFromUser() {
   return { title, text };
 }
 
-function setPost(newPost) {
-  post = newPost;
+function addPost({ title, text }) {
+  const postDate = `${new Date().toLocaleString()}`;
+
+  posts.push({ postDate, title, text });
 }
 
-function getPost() {
-  return post;
+function getPosts() {
+  return posts;
 }
 
-function renderPost() {
-  const post = getPost();
+function renderPosts() {
+  const posts = getPosts();
 
-  const postHTML = `
+  let postsHTML = "";
+
+  posts.forEach((post) => {
+    postsHTML += `
+    <div class='item'>
+        <p class="item__date">${post.postDate}</p>
         <h3 class="item__title">${post.title}</h3>
-        <p class="item__text">${post.text}</p>`;
+        <p class="item__text">${post.text}</p>
+    </div>`;
+  });
 
-  postsNode.innerHTML = postHTML;
+  postsNode.innerHTML = postsHTML;
+}
+
+function validation() {
+  const titleLength = titleInputNode.value.length;
+  const textLength = textInputNode.value.length;
+
+  if (titleLength > TITLE_VALIDATION_LIMIT) {
+    validationMessage.innerText = `*Длина заголовка не должна превышать ${TITLE_VALIDATION_LIMIT} символов`;
+    validationMessage.classList.remove("validationMessage_hidden");
+    return;
+  }
+
+  if (textLength > TEXT_VALIDATION_LIMIT) {
+    validationMessage.innerText = `*Длина текста не должна превышать ${TEXT_VALIDATION_LIMIT} символов`;
+    validationMessage.classList.remove("validationMessage_hidden");
+    return;
+  }
+
+  validationMessage.classList.add("validationMessage_hidden");
 }
