@@ -1,3 +1,8 @@
+:root {
+  --color-accent: rgb(64, 161, 251);
+  --color-error: red;
+}
+
 body {
   font-family: sans-serif;
 }
@@ -49,7 +54,7 @@ body {
   height: 30px;
   border-color: transparent;
   border-radius: 2px;
-  background-color: rgb(64, 161, 251);
+  background-color: var(--color-accent);
   color: #fff;
   cursor: pointer;
   transition: all 0.3s ease 0s;
@@ -61,14 +66,22 @@ body {
 .validationMessage {
   margin-top: -20px;
   font-size: 0.5rem;
-  color: red;
+  color: var(--color-error);
 }
 
 .validationMessage_hidden {
   display: none;
 }
 
+.item {
+  margin-bottom: 30px;
+}
+
 .item__date {
   font-style: italic;
-  color: cadetblue;
+  color: var(--color-accent);
+}
+
+.item__title {
+  font-weight: bold;
 }
